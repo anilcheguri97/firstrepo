@@ -1,3 +1,8 @@
+Time Complexity is O(n)
+Space Complexity is O(n) i.e for stack 
+res[] is not considered in space complexity because we have return
+
+
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) 
     {
