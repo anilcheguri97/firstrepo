@@ -1,6 +1,8 @@
 # majority element >n/2 in array  
 #code in java 
 # algo used is Boyer's Moore .
+// Time Complexity is O(n)
+// Space Complexity is O(1)
 class Solution {
     public int majorityElement(int[] nums)
     {
