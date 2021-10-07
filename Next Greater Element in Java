@@ -1,0 +1,33 @@
+Time complexity O(n)
+Space Complexity O(n) for stack and O(n) for hash map for O(n)
+
+
+
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) 
+    {
+      Map<Integer,Integer> map=new HashMap<>();
+        int result[]=new int[nums1.length];
+        findNextGreaterElement(nums2,map);
+        for(int i=0;i<nums1.length;i++)
+        {
+         result[i]=map.containsKey(nums1[i])?  map.get(nums1[i]):-1;
+        }
+        return result;
+        
+    }
+    public void  findNextGreaterElement(int nums[],Map<Integer,Integer> map)
+    {
+        Stack<Integer> s=new Stack<>();
+        for(int i=0;i<nums.length;i++)
+        {
+        while(!s.isEmpty()&&nums[i]>nums[s.peek()])
+        {
+            map.put(nums[s.pop()],nums[i]);
+            
+        }
+            s.push(i);
+        }
+        
+    }
+}
