@@ -1,0 +1,29 @@
+Time Complexity =O(n)
+Space Complexity=O(1)
+There are ( N+1 ) people in a party, they might or might not know each others names. There is one celebrity in the group (total N + 1 people), celebrity does not know any of N peoples by name and all N people know celebrity by name.
+You are given the list of people’s names (N + 1),You can ask only one question from the people.
+
+
+class Solution
+{ 
+    public int know(int M[][],int a,int b)
+    {
+        return M[a][b];
+    }
+    int celebrity(int M[][], int n)
+    {
+        int celeb=0;
+      for(int i=0;i<M.length;i++)
+      {
+          if(know(M,celeb,i)==1)
+            celeb=i;
+            
+      }
+     for(int i=0;i<M.length;i++)
+     {
+         if(i!=celeb && (know(M,celeb,i)==1||know(M,i,celeb)!=1))
+         return -1;
+     }
+    	 return celeb;
+    }
+}
